@@ -1,0 +1,106 @@
+fieldset {
+	width: 600px;
+}
+/*性别选项，采用背景图*/
+#gender-male,#gender-female{
+	position: absolute;
+	left: -9999px;
+}
+#gender-male:checked ~ #label-gender-male .sprite1,#gender-female:checked ~ #label-gender-female .sprite1{
+	background-position: -55px -5px;
+}
+#label-gender-male,#label-gender-female{
+	display: inline-flex;
+	align-items: center;
+	width: 85px;
+	height: 30px;
+	margin: 10px 20px;
+	cursor: pointer;
+}
+.sprite1 {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background-image: url(img.png);
+	background-position: -20px -5px;
+}
+/*婚姻选项，采用伪元素*/
+#marital-status-married,#marital-status-single{
+	position: absolute;
+	left: -9999px;
+}
+#label-marital-status-married,#label-marital-status-single{
+	display: inline-flex;
+	align-items: center;
+	width: 85px;
+	height: 30px;
+	margin: 10px 20px;
+	cursor: pointer;
+}
+#marital-status-married:checked ~ #label-marital-status-married::before, #marital-status-single:checked ~ #label-marital-status-single::before{
+	content: "";
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background-image: url(img.png);
+	background-position: -55px -5px;
+}
+
+#marital-status-married:not(checked) ~ #label-marital-status-married::before, #marital-status-single:not(checked) ~ #label-marital-status-single::before{
+	content: "";
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background-image: url(img.png);
+	background-position: -20px -5px;
+}
+/*学院选项，采用背景图*/
+#academy-business,#academy-frontend,#academy-nuomi {
+	position: absolute;
+	left: -9999px;
+}
+#label-academy-business,#label-academy-frontend,#label-academy-nuomi {
+	display: flex;
+	width: 300px;
+	height: 30px;
+	margin: 10px 20px;
+	cursor: pointer;
+}
+#academy-business:checked ~ #label-academy-business .sprite2,#academy-frontend:checked ~ #label-academy-frontend .sprite2,#academy-nuomi:checked ~ #label-academy-nuomi .sprite2 {
+	background-position: -55px -28px;
+}
+.sprite2 {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background-image: url(img.png);
+	background-position: -20px -28px;
+}
+/*主修选项，采用伪元素*/
+#major-javascript,#major-java,#major-cpp,#major-python,#major-ruby {
+	position: absolute;
+	left: -9999px;
+}
+#label-major-javascript,#label-major-java,#label-major-cpp,#label-major-python,#label-major-ruby {
+	display: flex;
+	width: 300px;
+	height: 30px;
+	margin: 10px 20px;
+	cursor: pointer;
+}
+#major-javascript:checked ~ #label-major-javascript::before,#major-java:checked ~ #label-major-java::before,#major-cpp:checked ~ #label-major-cpp::before,#major-python:checked ~ #label-major-python::before,#major-ruby:checked ~ #label-major-ruby::before {
+	content: "";
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background-image: url(img.png);
+	background-position: -55px -28px;
+}
+#major-javascript:not(checked) ~ #label-major-javascript::before,#major-java:not(checked) ~ #label-major-java::before,#major-cpp:not(checked) ~ #label-major-cpp::before,#major-python:not(checked) ~ #label-major-python::before,#major-ruby:not(checked) ~ #label-major-ruby::before {
+	content: "";
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background-image: url(img.png);
+	background-position: -20px -28px;
+}

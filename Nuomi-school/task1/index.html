@@ -2,65 +2,25 @@
 <html>
 <head>
 	<title>task1</title>
-	<style type="text/css">
-	fieldset {
-		width: 600px;
-	}
-	#gender-male,#gender-female{
-		position: absolute;
-		left: -9999px;
-	}
-	#gender-male:checked ~ #label-gender-male .sprite1,#gender-female:checked ~ #label-gender-female .sprite1{
-		background-position: -55px -5px;
-	}
-	#label-gender-male,#label-gender-female{
-		display: inline-flex;
-		align-items: center;
-		width: 80px;
-		height: 30px;
-		margin: 10px 20px;
-		cursor: pointer;
-	}
-	.sprite1 {
-		display: inline-block;
-		width: 25px;
-		height: 25px;
-		background-image: url(img.png);
-		background-position: -20px -5px;
-	}
-	#academy-business,#academy-frontend,#academy-nuomi {
-		position: absolute;
-		left: -9999px;
-	}
-	#label-academy-business,#label-academy-frontend,#label-academy-nuomi {
-		display: flex;
-		width: 300px;
-		height: 30px;
-		margin: 10px 20px;
-		cursor: pointer;
-	}
-	#academy-business:checked ~ #label-academy-business .sprite2,#academy-frontend:checked ~ #label-academy-frontend .sprite2,#academy-nuomi:checked ~ #label-academy-nuomi .sprite2 {
-		background-position: -55px -28px;
-	}
-	.sprite2 {
-		display: inline-block;
-		width: 25px;
-		height: 25px;
-		background-image: url(img.png);
-		background-position: -20px -28px;
-	}
-	</style>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<form>
-		<fieldset>
+		<fieldset class="gender">
 		    <legend>Gender:</legend>
 			<input type="radio" name="gender" id="gender-male" value="male" checked="checked"/>
 			<label for="gender-male" id="label-gender-male"><div class="sprite1"></div>Male</label>
 			<input type="radio" name="gender" id="gender-female" value="female" />
 			<label for="gender-female" id="label-gender-female"><div class="sprite1"></div>Female</label>
 		</fieldset>
-		<fieldset>
+		<fieldset class="marital-status">
+			<legend>Marital status:</legend>
+			<input type="radio" name="marital-status" id="marital-status-married" value="married" />
+			<label for="marital-status-married" id="label-marital-status-married">Married</label>
+			<input type="radio" name="marital-status" id="marital-status-single" value="single"  checked="checked"/>
+			<label for="marital-status-single" id="label-marital-status-single">Single</label>
+		</fieldset>
+		<fieldset class="academy">
 			<legend>Academy:</legend>
 			<input type="checkbox" name="academy" id="academy-business" value="business" />
 			<label for="academy-business" id="label-academy-business"><div class="sprite2"></div>商业平台学院</label>
@@ -68,6 +28,19 @@
 			<label for="academy-frontend" id="label-academy-frontend"><div class="sprite2"></div>ECharts &amp; WebVR学院</label>
 			<input type="checkbox" name="academy" id="academy-nuomi" value="nuomi" checked="checked" />
 			<label for="academy-nuomi" id="label-academy-nuomi"><div class="sprite2"></div>百度糯米前端技术学院</label>
+		</fieldset>
+		<fieldset class="major">
+			<legend>Major</legend>
+			<input type="checkbox" name="major" id="major-javascript" value="javascript" checked="checked" />
+			<label for="major-javascript" id="label-major-javascript">JavaScript</label>
+			<input type="checkbox" name="major" id="major-java" value="java" />
+			<label for="major-java" id="label-major-java">Java</label>
+			<input type="checkbox" name="major" id="major-cpp" value="cpp" />
+			<label for="major-cpp" id="label-major-cpp">C++</label>
+			<input type="checkbox" name="major" id="major-python" value="python" />
+			<label for="major-python" id="label-major-python">Python</label>
+			<input type="checkbox" name="major" id="major-ruby" value="ruby" />
+			<label for="major-ruby" id="label-major-ruby">Ruby</label>
 		</fieldset>
 	</form>
 </body>
