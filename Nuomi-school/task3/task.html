@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>task3</title>
+	<style type="text/css">
+		fieldset {
+			width: 600px;
+		}
+	</style>
+</head>
+<body>
+<form>
+	<fieldset>
+		<legend>手机号码验证:</legend>
+		<label for="number">手机号码:</label>
+		<input type="text" name="cell_phone_number" id="number" />
+		<input type="button" name="num-submit" id="num-btn" value="提交" />
+		<p id="num-answer">等待输入...</p>
+	</fieldset>
+	<fieldset>
+		<legend>判断输入的字符串是否有相邻重复单词:</legend>
+		<label for="string">输入字符串:<br /></label>
+		<textarea name="verify_same_string" id="string"></textarea>
+		<input type="button" name="str-submit" id="str-btn" value="提交" />
+		<p id="str-answer">等待输入...</p>
+	</fieldset>
+</form>
+	<script type="text/javascript">
+		var numBtn = document.getElementById("num-btn");
+		numBtn.onclick = function(){verifyNum();};
+		function verifyNum() {
+			var num = document.getElementById("number").value;
+			var ans = document.getElementById("num-answer");
+			var verify = /^1[34578]\d{9}$/;
+			if(verify.test(num)){
+				ans.innerHTML = "是正确的手机号！";
+			}
+			else{
+				ans.innerHTML = "不是正确的手机号！";
+			}
+		}
+		var strBtn = document.getElementById("str-btn");
+		strBtn.onclick = function(){verifyStr();};
+		function verifyStr() {
+			var str = document.getElementById("string").value;
+			var ans = document.getElementById("str-answer");
+			var verify = /\b([a-zA-Z]+)\s(?=\1)/;
+			if(verify.test(str)){
+				ans.innerHTML = "有相邻重复单词！";
+			}
+			else{
+				ans.innerHTML = "没有相邻重复单词！";
+			}
+		}
+
+	</script>
+</body>
+</html>
