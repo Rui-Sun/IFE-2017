@@ -1,0 +1,121 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.main-region {
+	width: 430px;
+	height: 317px;
+	position: relative;
+	overflow: hidden;
+	margin: 40px;
+}
+
+.main-region img {
+	transition: filter 1s;
+	transition: -webkit-filter 1s;
+}
+
+.horizontal-border {
+	position: absolute;
+	width: 60px;
+	height: 240px;
+	top: 38.5px;
+	left: 185px;
+	z-index: 100;
+	border-top: 4px solid #ccc;
+	border-bottom: 4px solid #ccc;
+	opacity: 0;
+	transition: width 2s, left 2s, opacity 3s;
+}
+
+.vertical-border {
+	position: absolute;
+	width: 350px;
+	height: 40px;
+	top: 138.5px;
+	left: 40px;
+	z-index: 100;
+	border-left: 2px solid #ccc;
+	border-right: 2px solid #ccc;
+	opacity: 0;
+	transition: height 2s, top 2s, opacity 3s;
+}
+
+.welcome {
+	position: absolute;
+	width: 350px;
+	height: 0;
+	top: 120px;
+	left: 40px;
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+	background: linear-gradient(to right,#FF6699,#FF6666,#FF9999,#FFFF99,#CCFF99,#99FF99,#66FF99,#33FF99,#00FF99);
+	-webkit-background-clip: text;
+	color: transparent;
+	background-size: 200% 100%;
+	opacity: 0;
+	transition: height 0.5s, top 0.1s, opacity 4s;
+}
+
+
+.sign {
+	position: absolute;
+	width: 350px;
+	height: 0;
+	top: 160px;
+	left: 40px;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	background: linear-gradient(to bottom,#336600,#336633,#339966,#339999,#3399CC,#3366FF);
+	-webkit-background-clip: text;
+	color: transparent;
+	background-size: 100% 200%;
+	opacity: 0;
+	transition: height 0.5s, top 0.1s, opacity 4s;
+	overflow: hidden;
+}
+
+.main-region:hover img {
+	filter: blur(5px);
+	-webkit-filter: blur(5px);
+
+}
+
+.main-region:hover .vertical-border {
+	top: 38.5px;
+	height: 240px;
+	opacity: 1;
+}
+
+.main-region:hover .horizontal-border {
+	left: 40px;
+	width: 350px;
+	opacity: 1;
+}
+
+.main-region:hover .welcome {
+	top: 90;
+	height: 30px;
+	opacity: 1;
+	animation: change-welcome 4s linear infinite alternate;
+}
+
+.main-region:hover .sign {
+	top: 160px;
+	height: 30px;
+	opacity: 1;
+	animation: change-sign 3s linear 2 alternate;
+}
+
+@keyframes change-welcome {
+	from{background-position: 0 0;}
+	to {background-position: 100% 0;}
+}
+@keyframes change-sign {
+	from{background-position: 0 0;}
+	to {background-position: 0 100%;}
+}
