@@ -1,0 +1,102 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.box {
+	width: 450px;
+	margin-top: 5px;
+	margin-left: 30px;
+}
+
+.diy-label {
+	display: block;
+	width: 450px;
+	height: 35px;
+	line-height: 35px;
+	padding-left: 20px;
+	border: 1px solid #aaa;
+	background-color: #eee;
+	border-radius: 5px;
+}
+
+input {
+	position: absolute;
+	left: -9999px;
+}
+
+.diy-label label {
+	cursor: pointer;
+	vertical-align: super;
+}
+
+.diy-label label:hover {
+	
+	border-bottom: 1px solid black;
+}
+#busi:checked ~ #busi-text:after {
+	content: "商业平台学院是百度商业体系最大的前端团队，所在部门主要负责百度核心商业产品推广平台的建设，包括搜索推广和信息流推广，是公司绝大部分收入的来源。学院不仅提供Web前端、还有iOS、Android方向供大家学习。商业平台学院欢迎你的到来！";
+	display: block;
+	box-sizing: border-box;
+	height: 0;
+	border: 1px solid #aaa; 
+	border-top: none;
+	padding: 0 20px;
+	border-radius: 0 0 5px 5px;
+	animation: ani 0.3s linear;
+	animation-fill-mode: forwards;
+	overflow: hidden;
+}
+
+#busi:checked ~ #busi-text .diy-label {
+	border-radius: 5px 5px 0 0;
+}
+
+#fe:checked ~ #fe-text:after {
+	content: "ECharts是现在国内最受欢迎的开源前端数据可视化产品，在GitHub上有16k的star，同时团队在WebGL上也有四年的技术积累，产出了像基础图形库 qtek，世界杯彩蛋，ECharts-X，百度大屏等产品。在这里大家可以学到如何基于ECharts将手上的数据制作成美观的可视化作品，以及如何使用WebVR制作VR展现。";
+	display: block;
+	box-sizing: border-box;
+	height: 0;
+	width: 450px;
+	border: 1px solid #aaa; 
+	border-top: none;
+	padding: 0 20px;
+	border-radius: 0 0 5px 5px;
+	animation: ani 0.3s linear;
+	animation-fill-mode: forwards;
+	overflow: hidden;
+}
+
+#fe:checked ~ #fe-text .diy-label {
+	border-radius: 5px 5px 0 0;
+}
+
+#nm:checked ~ #nm-text:after {
+	content: "百度糯米前端技术学院，是覆盖糯米业务范围最广的前端技术团队，包含B(Business)&amp;C(Customs)两端，应用场景涵盖PC、NA和WAP三端。团队内有对前端各个领域擅长的资深技术人才，从入门到精通都有专门导师做1对1指导。学院的宗旨是服务学员，专注如一。欢迎大家加入百度糯米前端技术学院，跟我们一起，探索前端技术奥妙！";
+	display: block;
+	box-sizing: border-box;
+	height: 0;
+	width: 450px;
+	border: 1px solid #aaa; 
+	border-top: none;
+	padding: 0 20px;
+	border-radius: 0 0 5px 5px;
+	animation: ani 0.3s linear;
+	animation-fill-mode: forwards;
+	overflow: hidden;
+}
+
+#nm:checked ~ #nm-text .diy-label {
+	border-radius: 5px 5px 0 0;
+}
+
+@keyframes ani
+{
+	form {height: 0;
+		padding: 0 20px;
+	}
+	to {height: auto;
+		padding: 14px 20px;
+	}
+}
