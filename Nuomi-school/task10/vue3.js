@@ -1,14 +1,7 @@
-
-function Observer(vue,qq){
+function Observer(vue){
 	this.data = vue;
 	this.handlers = {}; //事件处理方法
 	this.queue = {};
-	if(qq===undefined){
-		this.queue1 = [];
-	}
-	else{
-		this.queue1 = qq;
-	}
 	this.walk(this.data);
 	var self = this;
 	for(let prop in this.data){
@@ -63,9 +56,8 @@ p.walk = function(obj){
 			val = obj[key];
 		}
 		if(typeof val === "object"){
-			var child = new Observer(val,this.queue1);              //考虑对象属性值为对象
+			var child = new Observer(val);              //考虑对象属性值为对象
 			this.queue[key] = child;
-			child.queue1.push(key);
 		}
 		this.convert(key,val);
 	}
@@ -87,7 +79,7 @@ p.convert = function(key,val){
 			val = newVal;
 			for(let prop in self.handlers){
 				if(prop === key){
-					self.emit(key,val,self.queue1);                //发布事件
+					self.emit(key,val);                //发布事件
 				}
 			}
 			if(typeof newVal === "object"){                 //考虑属性值设置为对象
