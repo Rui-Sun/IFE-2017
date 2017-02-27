@@ -80,12 +80,38 @@ function show(){
 	v = v.replace(/^\s{0,3}(\d)+[\.\)]\s(.*)$/gm,"<ol><li value=\"$1\">$2</li></ol>");
 
 	//解析引用
-	v = v.replace(/^>+\s*(.*)(?=(^\r|\n\r|\n$)|(.\r|\n\r|\n.))/gm,"<div class=\"blockquote\">$1</div>");
+	// v = v.replace(/^>+\s*(.*)(?=(^\r|\n\r|\n$)|(.\r|\n\r|\n.))/gm,"<div class=\"blockquote\">$1</div>");
+	v = v.replace(/((^>(.|\n)+(?=^$)+)|(^>(.|\n)+))/gm,function(match,group1){
+		var origin1 = match;
+		console.log(origin1);
+		let maxLength = 0;                   //(.|\n)
+		origin1 = origin1.replace(/(^(>+)\s*([^>]+)(?=>))|(^(>+)\s*(.|\n)+)/gm,function(smatch,sgroup1){
+			var origin2 = smatch;
+			console.log(origin2);
+			origin2 = origin2.replace(/^(>+)\s*((.|\n)+)/,function(ssmatch,ssgroup1,ssgroup2){
+				console.log(ssgroup2);
+				let length = ssgroup1.length;
+				let origin3 = ssgroup2;
+				if(length > maxLength){
+					for(let i=0 ; i<(length-maxLength) ; i++){
+						origin3 = "<div class=\"blockquote\">" + origin3;
+					}
+					maxLength = length;
+				}
+					return origin3;
+			});
+			return origin2;
+		});
+		for(let i=0 ; i<maxLength; i++){
+			origin1 = origin1 + "</div>";
+		}
+		return origin1;
+	});
+
+	
 
 
-
-
-	console.log(v);
+	// console.log(v);
 
 
 	disp.innerHTML = v;
