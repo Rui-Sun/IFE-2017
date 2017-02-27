@@ -1,16 +1,17 @@
-var content = document.getElementById("content");
-content.style.height = (document.documentElement.clientHeight - 200)+"px";
+function init(){
+	let content = document.getElementById("content");
+	content.style.height = (document.documentElement.clientHeight - 200)+"px";
+	let sbt = document.getElementById("submit");
+	sbt.onclick = function(){show();};
+}
 
-var sbt = document.getElementById("submit");
-sbt.onclick = function(){show();};
-
-
+init();
 
 function show(){
-	var text = document.getElementById("text").value;
-	var disp = document.getElementById("output");
-	var u = text;
-	var v = "";
+	let text = document.getElementById("text").value;
+	let disp = document.getElementById("output");
+	let u = text;
+	let v = "";
 	//解析标题
 	v = u.replace(/^(#{1,6})\s(.+?)\s*#*\s*$/gm,function(match,group1,group2){
 		let level = group1.length;
@@ -80,16 +81,12 @@ function show(){
 	v = v.replace(/^\s{0,3}(\d)+[\.\)]\s(.*)$/gm,"<ol><li value=\"$1\">$2</li></ol>");
 
 	//解析引用
-	// v = v.replace(/^>+\s*(.*)(?=(^\r|\n\r|\n$)|(.\r|\n\r|\n.))/gm,"<div class=\"blockquote\">$1</div>");
-	v = v.replace(/((^>(.|\n)+(?=^$)+)|(^>(.|\n)+))/gm,function(match,group1){
-		var origin1 = match;
-		console.log(origin1);
-		let maxLength = 0;                   //(.|\n)
+	v = v.replace(/((^>(.|\n)+?(?=^$))|(^>(.|\n)+))/gm,function(match,group1){
+		let origin1 = match;			
+		let maxLength = 0;                   
 		origin1 = origin1.replace(/(^(>+)\s*([^>]+)(?=>))|(^(>+)\s*(.|\n)+)/gm,function(smatch,sgroup1){
 			var origin2 = smatch;
-			console.log(origin2);
 			origin2 = origin2.replace(/^(>+)\s*((.|\n)+)/,function(ssmatch,ssgroup1,ssgroup2){
-				console.log(ssgroup2);
 				let length = ssgroup1.length;
 				let origin3 = ssgroup2;
 				if(length > maxLength){
@@ -104,15 +101,26 @@ function show(){
 		});
 		for(let i=0 ; i<maxLength; i++){
 			origin1 = origin1 + "</div>";
+
 		}
 		return origin1;
+
 	});
 
-	
+	//解析行内代码
+	v = v.replace(/`([^`]+)(?!^.*)`/gm,"<code>$1</code>");
 
-
+	//解析块级代码
+		//`...`情况
+	v = v.replace(/^```$([^(```)]+)^```$/gm,"<pre><code>$1</code></pre>");
+		//空格情况
+	v = v.replace(/(^\s{4}(.+)$\n)+(?!^(\s{4}))/gm,function(match){
+		let origin = match;
+		origin = origin.replace(/^\s{4}/gm,"");
+		origin = "<pre><code>"+origin+"</code></pre>";
+		return origin;
+	})
 	// console.log(v);
-
 
 	disp.innerHTML = v;
 }

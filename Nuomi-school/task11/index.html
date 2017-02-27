@@ -50,8 +50,13 @@
 			margin: 5px;
 		}
 		.blockquote {
-			border: 2px solid red;
-			padding: 10px;
+			border-left: 6px solid #eee;
+			padding: 10px 20px;
+			margin: 10px 20px;
+		}
+		code {
+			color: red;
+			background-color: #eee;
 		}
 	</style>
 </head>
@@ -62,7 +67,41 @@
 		<input type="button" name="submit" id="submit" value="提交">
 	</div>
 	<div id="content">
-		<textarea id="text" placeholder="请在此输入内容..."></textarea>
+		<textarea id="text" placeholder="请在此输入内容...">实现了：
+# 标题1
+## 标题2
+无序列表：
++ 列表1
+ - 列表2
+ * 列表2
+  + 列表3
+  - 列表3
+ * 列表2
++ 列表1
+
+有序列表：
+1. 列表1
+ 1) 列表2
+ 2. 列表2
+  1. 列表3
+  2) 列表3
+ 3. 列表2
+2) 列表1
+引用：
+> 任务目的 深入理解正则表达式 练习使用正则表达式处理文本 
+>>掌握Markdown语法 任务描述 参考Mahua 在线Markdown编辑器左右两栏样式，
+>>> 实现一个在线的Markdown文档编辑器。
+
+
+解析行内代码：
+要求： 可以解析`标题`可以解析`列表`，
+    包含有序和无序列表 可以解析引用和代码块
+    任务注意事项 尽量独立思考完成，必要时也可以参照一些开源库
+
+```
+如marked的实现 注意测试不同情况，尤其是极端情况下的能否正常解析。 
+如果有能力，可以尝试添加图片、链接的解析。
+```</textarea>
 		<div id="output"></div>
 	</div>
 
