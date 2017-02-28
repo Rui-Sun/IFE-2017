@@ -5,8 +5,6 @@ function init(){
 	sbt.onclick = function(){show();};
 }
 
-init();
-
 function show(){
 	let text = document.getElementById("text").value;
 	let disp = document.getElementById("output");
@@ -154,3 +152,6 @@ function show(){
 
 	disp.innerHTML = v;
 }
+
+init();
+show();
