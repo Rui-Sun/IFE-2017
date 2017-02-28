@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css-loding</title>
+	<style type="text/css">
+		.back {
+			width: 100px;
+			height: 100px;
+			background-color: #ddd;
+			border: 1px solid #bbb;
+			border-radius: 5px;
+			position: relative;
+		}
+		.background {
+			width: 0;
+			height: 0;
+			border: 50px solid #FF298C;
+			border-radius: 50px;
+			border-right-color: #FB8BBD;
+			border-bottom-color: #FB8BBD;
+			transform: rotate(-45deg);
+			position: absolute;
+			left: 0;
+			top: 0;
+			animation: backa 2s linear 2s 1 forwards;
+		}
+		@keyframes backa 
+		{
+			from {
+				transform: rotate(-45deg);
+			}
+			to {
+				transform: rotate(-405deg);
+			}
+		}
+
+		.foreground {
+			width: 0;
+			height: 0;
+			z-index: 5;
+			border: 50px solid #FB8BBD;
+			border-radius: 50px;
+			border-right-color: transparent;
+			border-bottom-color: transparent;
+			transform: rotate(-45deg);
+			position: absolute;
+			left: 0;
+			top: 0;
+			animation-name:forea, foreb, forec, fored;
+			animation-duration: 1s,0s,1s,0s;
+			animation-timing-function: linear,linear,linear,linear;
+			animation-delay: 0s,1s,1s,3s;
+			animation-iteration-count: 1,1,1,1;
+			animation-fill-mode: forwards, forwards, forwards, forwards;
+		}
+		
+		@keyframes forea 
+		{
+			from {
+				transform: rotate(-45deg);
+			}
+			to {
+				transform: rotate(-225deg);
+			}
+		}
+		@keyframes foreb 
+		{
+			from {
+				border-left-color: #FB8BBD;
+				border-top-color: #FB8BBD;
+				border-right-color: transparent;
+				border-bottom-color: transparent;
+			}
+			to {
+				border-left-color: transparent;
+				border-top-color: transparent;
+				border-right-color: #FF298C;
+				border-bottom-color: #FF298C;
+			}
+		}
+		@keyframes forec 
+		{
+			from {
+				transform: rotate(-225deg);
+			}
+			to {
+				transform: rotate(-405deg);
+			}
+		}
+		@keyframes fored 
+		{
+			from {
+				border-left-color: transparent;
+				border-top-color: transparent;
+				border-right-color: #FF298C;
+				border-bottom-color: #FF298C;
+			}
+			to {
+				border-left-color: #FB8BBD;
+				border-top-color: #FB8BBD;
+				border-right-color: transparent;
+				border-bottom-color: transparent;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="back">
+		<div class="background">
+		</div>
+		<div class="foreground">
+		</div>
+	</div>
+</body>
+</html>
