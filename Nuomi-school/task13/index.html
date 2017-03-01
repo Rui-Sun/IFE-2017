@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tree</title>
+	<style type="text/css">
+		* {
+			font-size: 15px;
+			line-height: 30px;
+		}
+		input {
+			position: absolute;
+			left: -999999px;
+		}
+		.father{
+			margin-left: 25px;
+		}
+	</style>
+</head>
+<body>
+	<div id="background">
+	</div>
+
+	<script type="text/javascript">
+		(function(){
+			var nodes = [ {name: "父节点1", children: [ {name: "子节点1"}, {name: "子节点2"} ]}, {name: "父节点2", children: [ {name: "子节点3"}, {name: "子节点4", children:[ {name:"子节点5"} ]} ]} ];
+			var num = 1; //计数器，使得每一个label和对应的checkbox一一对应
+			var background = document.getElementById("background");
+			for(let i=0 ; i<nodes.length ; i++){
+				background.appendChild(addTree(nodes[i]));
+			}
+
+			function addTree (obj){
+				let box = document.createElement("div");  //建立父容器
+				box.className = "father";
+				let btn = document.createElement("input"); //建立选择框
+				btn.type = 'checkbox';
+				btn.id = 'b'+num;
+				btn.checked = "checked";
+				let leb = document.createElement("label");  //建立标签
+				leb.for = 'b'+num;
+				num = num + 1;
+				leb.innerHTML = obj.name;
+				leb.onclick = function(){open(this);}        //标签点击触发事件，判断选择框状态
+				leb.appendChild(btn);
+				box.appendChild(leb);
+				if(obj.children){                             //如果children属性不为空，调用 addTree
+					for(let i=0 ; i<obj.children.length ; i++){
+						box.appendChild(addTree(obj.children[i]));
+					}
+				}
+				return box;
+			}
+
+
+			function open (th){
+				let openLabel = th;
+				if(openLabel.lastElementChild.checked === true){
+					let next = openLabel.nextElementSibling;
+					while(next){
+						next.style.display = 'block';
+						next = next.nextElementSibling;
+					}
+				}
+				else{
+					let next = openLabel.nextElementSibling;
+					while(next){
+						next.style.display = 'none';
+						next = next.nextElementSibling;
+					}
+				}
+			}
+})();
+		
+	</script>
+</body>
+</html>
