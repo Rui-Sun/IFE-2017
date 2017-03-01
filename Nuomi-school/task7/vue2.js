@@ -54,7 +54,7 @@ p.convert = function(key,val){
 			}
 		}
 	})
-};
+}; 
 
 
 let app1 = new Observer({
