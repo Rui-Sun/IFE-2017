@@ -9,26 +9,22 @@
 #player-imgs {
 	width: 150px;
 	height: 150px;
-	background-color: blue;
+	background-repeat: no-repeat;
+	background-size: 100%;
 	border-radius:50%;
 }
 #player-imgl {
 	width: 150px;
 	height: 150px;
-	background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1488529921405&di=853f764bf1fddc88300738566d1a5e8a&imgtype=0&src=http%3A%2F%2Fwww.qhdxw.com%2Fall%2Fuploads%2Fallimg%2F20160803%2F165246_276113.jpg);
 	background-repeat: no-repeat;
-	background-size: 150%;
+	background-size: 100%;
 	border-radius:50%;
 	margin: 20px 35px 5px;
-	animation: turn-round 20s linear infinite;
-}
-@keyframes turn-round {
-	form{transform: rotate(0deg);}
-	to{transform: rotate(360deg);}
 }
 #player-progress {
 	height: 3px;
 	margin: 10px 0;
+	float: none;
 }
 .btn-default {
 	border: none;
@@ -38,21 +34,17 @@
 	align-items: center;
 	width: 82px;
 }
-
 #player-volume .volume-value {
 	display: inline-block;
 	width: 0;
 	transition: width 0.3s linear;
 }
-
 #player-volume:hover .volume-value{
 	width: 50px;
 }
-
 .btn-default:visited {
 	background-color: transparent;
 }
-
 .btn-default:focus {
 	background-color: transparent;
 	outline: none;
@@ -73,6 +65,7 @@
 } 
 #volumeSlider {
 	width: 100%;
+	margin-bottom: -1px;
 }
 #volumeSlider .slider-track {
 	height: 6px;
@@ -83,12 +76,9 @@
 
 .slider-handle.custom {
 	background: transparent none;
-	/* You can customize the handle and set a background image */
 }
-
-/* Or display content like unicode characters or fontawesome icons */
 .slider-handle.custom::before {
 	line-height: 20px;
 	font-size: 20px;
-	content: ''; /*unicode star character*/
+	content: ''; 
 }
