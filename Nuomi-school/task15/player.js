@@ -48,7 +48,7 @@ $("#player-main").css('margin-top',($(window).height()-$("#player-main").height(
  
   	$('#player-bar').slider('setValue',(parseInt($('#audio1').prop('currentTime'))/parseInt($('#audio1').prop('duration')))*100);
 }
-let dde = setInterval(change,1000);
+let getting = setInterval(change,1000);
 
 
 //创建slider
