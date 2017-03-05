@@ -1,6 +1,7 @@
 var startTime = new Date();
 var keyword = '百度前端技术学院';
-var searchURL = 'https://www.baidu.com/s?wd=' + keyword;
+var keywordURL = encodeURIComponent(keyword);
+var searchURL = 'https://www.baidu.com/s?wd=' + keywordURL;
 var page = require('webpage').create();
 page.open(searchURL, function(status) {
     if (status !== 'success') {
