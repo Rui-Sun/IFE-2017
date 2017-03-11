@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>form</title>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        form {
+            margin: 50px;
+            padding: 10px;
+        }
+        .row label {
+            display: inline-block;
+            width: 150px;
+            height: 60px;
+            line-height: 60px;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: right;
+            padding-right: 20px;
+        }
+        .row input {
+            display: inline-block;
+            width: 500px;
+            height: 60px;
+            font-size: 25px;
+            border-radius: 5px;
+            border: 2px solid #ccc;
+        }
+        #submit {
+            display: inline-block;
+            height: 60px;
+            width: 100px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 25px;
+            background-color: #3399FF; 
+            border-color: #3366FF;
+            border-radius: 5px;
+            margin-left: 560px;
+        }
+        .tip {
+            margin: 5px 155px;
+            color: #999;
+        }
+        #myForm fieldset {
+            margin: 20px 5px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+    <fieldset>
+        <p class="row">
+            <label for="name" id="name-label">名称</label>
+            <input type="text" name="name" id="name"> 
+        </p>
+        <p class="tip" id="name-tip" hidden="hidden">必填，长度为4~16个字符</p>
+    </fieldset>
+    <fieldset>
+        <p class="row">
+            <label for="password" id="password-label">密码</label>
+            <input type="password" name="password" id="password">
+        </p>
+        <p class="tip" id="password-tip" hidden="hidden">必填，由6~12个字母或数字组成</p>
+    </fieldset>
+    <fieldset>
+        <p class="row">
+            <label for="password-ensure" id="password-ensure-label">密码确认</label>
+            <input type="password" name="password-ensure" id="password-ensure">
+        </p>
+        <p class="tip" id="password-ensure-tip" hidden="hidden">必填，请重复输入密码</p>
+    </fieldset>
+    <fieldset>
+        <p class="row">
+            <label for="email" id="email-label">邮箱</label>
+            <input type="email" name="email" id="email">
+        </p>
+        <p class="tip" id="email-tip" hidden="hidden">必填，请填写正确的邮箱</p>
+    </fieldset>
+    <fieldset>
+        <p class="row">
+            <label for="phone" id="phone-label">手机</label>
+            <input type="text" name="phone" id="phone">
+        </p>
+        <p class="tip" id="phone-tip" hidden="hidden">必填，请填写正确的手机号</p>
+    </fieldset>
+    <input type="submit" value="验证" id="submit">  
+    </form>
+    <script type="text/javascript" src="form.js"></script>
+</body>
+</html>
