@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>form</title>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .row {
+            font-size: 22px;
+            margin: 30px 10px;
+        }
+        #selector label {
+            margin-left: 88px;
+            margin-right: 40px;
+            display: inline-block;
+        }
+        #selector label input{
+            height: 22px;
+            width: 22px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        #in-school-row span{
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            margin-right: 10px;
+        }
+        #in-school-row select{
+            font-size: 22px;
+            height: 40px; 
+            width: 180px;
+            border-radius: 5px;
+        }
+        #out-school-row label {
+            display: inline-block;
+            padding-left: 12px;
+        }
+        #out-school-row label input{
+            margin-left: 15px;
+            display: inline-block;
+            font-size: 22px;
+            height: 40px; 
+            width: 360px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <p class="row" id="selector">
+        <label for="in-school"><input type="radio" name="stu" id="in-school" checked="checked">在校生</label>
+        <label for="out-school"><input type="radio" name="stu" id="out-school">非在校生</label>
+    </p>
+    <p class="row" id="in-school-row">
+        <span>学校</span>
+        <select id="city">
+            <option id="bj" checked="checked">北京</option>
+            <option id="sh">上海</option>
+            <option id="js">江苏</option>
+            <option id="gd">广东</option>
+        </select>
+        <select id="bj-sch" class="school">
+            <option>北京大学</option>
+            <option>清华大学</option>
+            <option>中国人民大学</option>
+        </select>
+        <select id="sh-sch" class="school" hidden="hidden">
+            <option>复旦大学</option>
+            <option>同济大学</option>
+            <option>上海交通大学</option>
+        </select>
+        <select id="js-sch" class="school" hidden="hidden">
+            <option>南京大学</option>
+            <option>东南大学</option>
+            <option>南京理工大学</option>
+        </select>
+        <select id="gd-sch" class="school" hidden="hidden">
+            <option>中山大学</option>
+            <option>暨南大学</option>
+            <option>华南理工大学</option>
+        </select>
+    </p>
+    <p class="row" id="out-school-row" hidden="hidden">
+        <label>就业单位<input type="text" name="unit"></label> 
+    </p>
+    <script type="text/javascript" src="form.js"></script>
+</form>
+</body>
+</html>
