@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>cube</title>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        #container {
+            margin: 20px;
+        }
+        .row {
+            height: 50px;
+        }
+        .row span {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid #aaa;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 20px;
+        }
+        .row span:first-child {
+            border: none;
+            border-right: 1px solid #000;
+        }
+        .row span:first-child + span {
+            border-left: 1px solid #000;
+        }
+        .row span:last-child {
+            border-right: 2px solid #000;
+        }
+        .row:first-child span {
+            border: none;
+            border-bottom: 1px solid #000;
+        }
+        .row:first-child + .row span {
+            border-top: 1px solid #000;
+        }
+        .row:first-child span:first-child {
+            border-bottom: none;
+        }
+        .row:last-child span {
+            border-bottom: 2px solid #000;
+        }
+        .row:last-child span:first-child {
+            border-bottom: none;
+        }
+        .row:first-child span:first-child + span {
+            border-left: none;
+        }
+        .row:first-child + .row span:first-child {
+            border-top: none;
+        }
+        #order-row {
+            margin: 10px 70px;
+        }
+        #order {
+            height: 30px;
+            font-size: 20px;
+            border-radius: 2px;
+        }
+        #submit {
+            height: 30px;
+            width: 50px;
+            font-size: 16px;
+            border-radius: 2px;
+            margin-left: 10px;
+        }
+        #cube {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            z-index: 10;
+            left: 120px;
+            top: 120px;
+        }
+        #blue {
+            width: 50px;
+            height: 10px;
+            background-color: blue;
+        }
+        #red {
+            width: 50px;
+            height: 40px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <dir class="row">
+            <span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+        </dir>
+        <dir class="row">
+            <span>1</span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </dir>
+        <dir class="row">
+            <span>2</span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </dir>
+        <dir class="row">
+            <span>3</span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </dir>
+        <dir class="row">
+            <span>4</span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </dir>
+        <dir class="row">
+            <span>5</span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </dir>
+        <dir class="row">
+            <span>6</span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </dir>
+        <dir class="row">
+            <span>7</span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </dir>
+        <dir class="row">
+            <span>8</span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </dir>
+        <dir class="row">
+            <span>9</span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </dir>
+        <dir class="row">
+            <span>10</span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </dir>
+    </div>
+    <label id="order-row"><input type="text" id="order"><input type="button" id="submit" value="执行"></label>
+    <div id="cube">
+        <div id="blue"></div>
+        <div id="red"></div>
+    </div>
+    <script type="text/javascript" src="cube.js"></script>
+</body>
+</html>
