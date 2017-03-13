@@ -37,10 +37,10 @@ async function crawler (word,device){
             dataList = await page.evaluate(function(){
                 var dataList1 = $('#results .c-container:not(.c-recomm-wrap)').map(function(){
                     var info = {};
-                    info.title = $(this).find('.c-title').text() || '';
-                    info.abstract = $(this).find('.c-abstract').text() || '';
-                    info.link = $(this).children('.c-blocka').attr('href') || '';
-                    info.pic = $(this).find('.c-img img').attr('src') || '';
+                    info.title = ($(this).find('.c-title').text() || '').replace(/^\s+|\s+$|(?=\S)\s+|\s+(?=\S)/g,"");
+                    info.abstract = ($(this).find('.c-abstract').text() || '').replace(/^\s+|\s+$|(?=\S)\s+|\s+(?=\S)/g,"");
+                    info.link = ($(this).children('.c-blocka').attr('href') || '').replace(/^\s+|\s+$|(?=\S)\s+|\s+(?=\S)/g,"");
+                    info.pic = ($(this).find('.c-img img').attr('src') || '').replace(/^\s+|\s+$|(?=\S)\s+|\s+(?=\S)/g,"");
                     return info;
                 }).toArray();
                 return dataList1;
@@ -50,10 +50,10 @@ async function crawler (word,device){
             dataList = await page.evaluate(function(){
                 var dataList1 = $('.c-container').map(function(){
                     var info = {};
-                    info.title = $(this).find('.t').text() || '';
-                    info.abstract = $(this).find('.c-abstract').text() || '';
-                    info.link = $(this).find('.t > a').attr('href') || '';
-                    info.pic = $(this).find('.general_image_pic img').attr('src') || '';
+                    info.title = ($(this).find('.t').text() || '').replace(/^\s+|\s+$|(?=\S)\s+|\s+(?=\S)/g,"");
+                    info.abstract = ($(this).find('.c-abstract').text() || '').replace(/^\s+|\s+$|(?=\S)\s+|\s+(?=\S)/g,"");
+                    info.link = ($(this).find('.t > a').attr('href') || '').replace(/^\s+|\s+$|(?=\S)\s+|\s+(?=\S)/g,"");
+                    info.pic = ($(this).find('.general_image_pic img').attr('src') || '').replace(/^\s+|\s+$|(?=\S)\s+|\s+(?=\S)/g,"");
                     return info;
                 }).toArray();
                 return dataList1;
@@ -69,7 +69,7 @@ async function crawler (word,device){
         };
 
         await instance.exit();
-        return JSON.stringify(searchResult,null,4);   //传回JOSN字符串
+        return JSON.stringify(searchResult,null,4);     //传回JOSN字符串
 
         
     }catch (err) {
