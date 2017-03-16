@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>crawler</title>
+    <style type="text/css">
+        table
+        {
+            width: auto;
+            border-collapse:collapse;
+            margin: 100px;
+        }
+
+        table, th, td
+        {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>crawler results</h1>
+    <h2>word: {{word}}</h2>
+    <h2>device: {{device}}</h2>
+    <table>
+        <tr>
+            <th>title</th>
+            <th>abstract</th>
+            <th>link</th>
+            <th>pic</th>
+        </tr>
+        {% for data in dataList %}
+        <tr>
+            <td>{{data.title}}</td>
+            <td>{{data.abstract}}</td>
+            <td>{{data.link}}</td>
+            <td><img src="{{data.imgSrc}}"></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
