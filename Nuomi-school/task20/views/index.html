@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>koa2</title>
+    <style type="text/css">
+        table
+        {
+            width: 85%;
+            border-collapse:collapse;
+            margin: auto;
+            word-wrap:break-word;
+            table-layout:fixed;
+        }
+        table, th, td
+        {
+            border: 1px solid black;
+        }
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crawler info</h1>
+    <p>Please input word, devices and number of pages</p>
+    <form id="crawler-form">
+        <p><label>key-word: <input name="word" value="koa"></label></p>
+        <p>
+            <label>devices: </label>
+            <label><input type="checkbox" name="device" value="pc" checked="checked">pc</label>
+            <label><input type="checkbox" name="device" value="ipad">ipad</label>
+            <label><input type="checkbox" name="device" value="iphone6">iphone6</label>
+            <label><input type="checkbox" name="device" value="iphone5">iphone5</label>
+        </p>
+        <p><label>number of pages: <input name="pages" value="1"></label></p>
+        <p><input id="submit" type="button" value="Submit"></p>
+    </form>
+    <h1>Crawler results</h1>
+    <h4>completed missions:<span id="done">0</span> / total missions:<span id="total">0</span></h4>
+    <table id="results">
+        <tr>
+            <th width="5%">key-word</th>
+            <th width="5%">device</th>
+            <th width="5%">page</th>
+            <th width="20%">title</th>
+            <th width="20%">abstract</th>
+            <th width="20%">link</th>
+            <th width="15%">pic</th>
+        </tr>
+    </table>
+    <script src="/js/socket.io.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>
