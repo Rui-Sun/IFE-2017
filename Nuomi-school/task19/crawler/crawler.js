@@ -19,11 +19,13 @@ async function crawler (word,device){
             page.setting('userAgent','Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1');
             page.property('viewportSize',{ width: 320, height: 568 });
             page.property('clipRect',{ top: 0, left: 0, width: 320, height: 568 });
+            searchURL = 'https://m.baidu.com/s?wd=' + keywordURL;       //iphone只有在m.baidu.com中才能正确设置页面
         }
         else if(device === 'iphone6'){  
             page.setting('userAgent','Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1');
             page.property('viewportSize',{ width: 375, height: 667 });
             page.property('clipRect',{ top: 0, left: 0, width: 375, height: 667 });
+            searchURL = 'https://m.baidu.com/s?wd=' + keywordURL;
         }
         else if(device === 'pc'){
             
