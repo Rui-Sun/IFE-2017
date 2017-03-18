@@ -1,28 +1,4 @@
-//歌曲信息
-var source = [
-{
-	name : '长镜头',
-	singer : '杨宗纬',
-	img : 'http://npic7.edushi.com/cn/zixun/zh-chs/2016-10/02/3420126-20161002000857680.jpg',
-	url : 'http://music.baidutt.com/up/kwcswdwd/mksdsu.mp3',
-	like : true
-},
-{
-	name : '拥抱',
-	singer : '五月天',
-	img : 'http://img5.duitang.com/uploads/item/201206/06/20120606200041_YJZ4n.jpeg',
-	url : 'http://www.tingge123.com/mp3/2016-06-19/1466300596.mp3',
-	like : false
-},
-{
-	name : '依赖',
-	singer : '张靓颖',
-	img : 'http://www.hinews.cn/pic/003/012/543/00301254372_913162f8.jpg',
-	url : 'http://music.baidutt.com/up/kwcswdwu/yyspdw.mp3',
-	like : false
-}]
-
-//水平垂直居中
+//垂直居中
 $("#player-main").css('margin-top',($(window).height()-$("#player-main").height())/2+'px');
 
 //歌曲信息采集
@@ -103,25 +79,37 @@ $('#player-volume .btn').click(function(){
  	$('#audio1').prop('currentTime',$('#audio1').prop('duration')*$('#player-bar').slider('getValue')/100);
  });
 
-var i = 0;//全局变量记录当前播放歌曲序号
+//闭包管理歌曲序号
+const serialNum = (() => {
+    let i = 0;
+    function add(){
+        if(i < source.length - 1){
+        	i++;
+    	}
+        else{
+        	i=0;
+        }
+    }
+    function show(){
+        return i
+    }
+    return {add: add, show: show};
+})();
+
  //页面加载完成后加载第一首歌
  $(document).ready(function(){
- 	$('#song-name').text(source[i].name);
- 	$('#song-singer').text(source[i].singer);
- 	$('#player-imgl,#player-imgs').css('background-image','url('+source[i].img+')');
- 	$('#audio1').attr('src',source[i].url);
+ 	$('#song-name').text(source[serialNum.show()].name);
+ 	$('#song-singer').text(source[serialNum.show()].singer);
+ 	$('#player-imgl,#player-imgs').css('background-image','url('+source[serialNum.show()].img+')');
+ 	$('#audio1').attr('src',source[serialNum.show()].url);
  });
+
  //切换歌曲按钮
  $('#player-next').click(function(){
- 	if((i+1)===source.length){
- 		i = 0;
- 	}
- 	else{
- 		i=i+1;
- 	}
- 	$('#song-name').text(source[i].name);
- 	$('#song-singer').text(source[i].singer);
- 	$('#player-imgl,#player-imgs').css('background-image','url('+source[i].img+')');
- 	$('#audio1').attr('src',source[i].url);
+ 	serialNum.add();
+ 	$('#song-name').text(source[serialNum.show()].name);
+ 	$('#song-singer').text(source[serialNum.show()].singer);
+ 	$('#player-imgl,#player-imgs').css('background-image','url('+source[serialNum.show()].img+')');
+ 	$('#audio1').attr('src',source[serialNum.show()].url);
  	$('#player-play').trigger('click');
  });
