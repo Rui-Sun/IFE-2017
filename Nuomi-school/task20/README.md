@@ -23,4 +23,4 @@ IFE 2017
 * socket.io-client
 
 ### 项目界面：
-![screemshot](./screemshot.png)
+![screemshot](./screenshot.png)
